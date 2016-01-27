@@ -132,6 +132,10 @@ To start the database engine, type `mongod` in terminal.
 
 Press `control-c` to stop the engine.
 
+#### RoboMongo GUI Interface
+
+[Robomongo](http://robomongo.org/) is a GUI interface app for MongoDB (similar to the Postgres GUI we used previously). Feel free to check it out.
+
 #### Creating a Database and Inserting Documents
 
 MongoDB installs with a client app, a JavaScript-based shell, that allows us to interact with MongoDB directly.
@@ -156,7 +160,7 @@ Show the collections of the current database `> show collections`.
 
 To create a new database in the Mongo Shell, we simply have to _use_ the database.  Lets create a database named _myDB_:
 
-```
+```javascript
 > use myDB
 ```
 
@@ -164,7 +168,7 @@ To create a new database in the Mongo Shell, we simply have to _use_ the databas
 
 This how we can create and insert a document into a collection named _people_:
 
-```
+```javascript
 > db.people.insert({
     name: "Fred", // Don't type the dots, they are from the
     age: 21     // shell, indicating multi-line mode
@@ -177,7 +181,7 @@ Using a collection for the first time creates it!
 
 In a moment we'll practice querying our database, but let's get more data in there. Here are few more documents to put in your _people_ collection. We can simply provide this __array__ to the _insert_ method and it will create a document for each object in the array.
 
-```js
+```javascript
 db.people.insert([
   {
     "name": "Emma",
@@ -213,7 +217,7 @@ db.people.insert([
 
 To list all documents in a collection, we use the _find_ method on the collection without any arguments:
 
-```
+```javascript
 > db.people.find()
 ```
 
@@ -223,14 +227,13 @@ Again, unlike the rows in a relational database, our documents don't have to hav
 
 We can also use the `find()` method to query the collection by passing in an argument – a JS object containing criteria to query with.
 
-```
+```javascript
 > db.people.find( {name: "Emma"} )
-
 ```
 
 There are a handful of special criteria variables we can use, too. Here's how we can use MongoDB's `$gt` query operator to return all _people_ documents with an age greater than 20:
 
-```
+```javascript
 > db.people.find( {age: { $gt: 20 } } )
 ```
 
@@ -242,7 +245,7 @@ In addition to selecting which data is returned, we can modify how that data is 
 
 This sorts our age query and sorts by _name_:
 
-```
+```javascript
 > db.people.find( {age: { $gt: 20 } } ).sort( {name: 1} )
 ```
 The "1" indicates ascending order.
@@ -253,13 +256,13 @@ The "1" indicates ascending order.
 
 In MongoDB, we use the `update()` method of collections by specifying the _update criteria_ (like we did with `find()`), and use the `$set` action to set the new value.
 
-```
+```javascript
 > db.people.update( { name: "Emma" }, { $set: { age: 99 } })
 ```
 
 By default `update()` will only modify a single document. However, with the `multi` option, we can update all of the documents that match the query.
 
-```
+```javascript
 > db.people.update( { name: { $lt: "M" } }, { $inc: { age: 10 } }, { multi: true } )
 ```
 We used the `$inc` update operator to increase the existing value.
@@ -276,7 +279,7 @@ Call `remove({})` on the collection to remove all docs from a collection. Note: 
 
 Otherwise, specify a criteria to remove all documents that match it:
 
-```
+```javascript
 > db.people.remove( { age: { $lt: 50 } } )
 ```
 
@@ -301,7 +304,7 @@ To demonstrate __embedding__, we will add another person to our _people_ collect
 
 Let's walk through this command by entering it together:
 
-```js
+```javascript
 > db.people.insert({
     name: "Manny",
     age: 33,
@@ -333,11 +336,7 @@ We can model data relationships using a __references__ approach where data is st
 
 It may help to think of this approach as _linking_ documents together by including a reference to the related document's *_id* field.
 
-Let's create a new `bankAccounts` collection:
-
-```js
-> use bankAccounts
-```
+To demo this, we'll create a new `bankAccounts` collection in our `myDB` database.
 
 > Note: Use the idea that the person might have a _joint account_, which is owned by more than one person.
 
@@ -360,6 +359,7 @@ Now let's get that account's _id_:
 ```js
 > db.bankAccounts.findOne({})
 { "_id" : ObjectId("56426f481779b50ee5267752"), "balance" : 2000 }
+//your ObjectId will be different
 ```
 
 Now let's insert a person an reference their bank account:
@@ -368,7 +368,7 @@ Now let's insert a person an reference their bank account:
 > db.people.insert({
     name: "Miguel",
     age: 46,
-    bankAccount: ObjectId("56426f481779b50ee5267752")
+    bankAccount: ObjectId("your bankAccount ObjectId")
 })
 ```
 
