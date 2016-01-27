@@ -3,8 +3,8 @@ title: Intro to NoSQL with Mongo
 type: Lesson
 duration: '"1:25"'
 creator:
-    name: Jim Clark / Micah Rich
-    city: LA
+    name: Jim Clark / Micah Rich / LA
+    edited: Marc Wright / ATL
 competencies: Databases
 ---
 
