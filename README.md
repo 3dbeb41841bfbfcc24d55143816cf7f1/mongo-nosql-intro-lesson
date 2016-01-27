@@ -85,15 +85,14 @@ However, it's more common to allow MongoDB to create it implicitly for us using 
 #### Key Differences of MongoDB
 
 - Schema-less
-The documents in a MongoDB collection can have completely different types and number of fields from each other.<br>__How does this compare to a SQL database like PostgreSQL?__
+	- The documents in a MongoDB collection can have completely different types and number of fields from each other.<br>
+	- __How does this compare to a SQL database like PostgreSQL?__
 
 - No Table Joins
 
-In a SQL DB, we break up related data into separate tables.
-
-In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
-
-The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
+	- In a SQL DB, we break up related data into separate tables.
+	- In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
+	- The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
 
 ## Installing, Creating a DB, and Inserting Documents - Codealong (15 mins)
 
