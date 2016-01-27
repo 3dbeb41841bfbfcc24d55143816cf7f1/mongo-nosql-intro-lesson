@@ -27,7 +27,7 @@ competencies: Databases
 
 MongoDB is one of the new breeds of databases known as NoSQL databases. NoSQL databases are heavily used in realtime, big data and social media applications and generally called NoSQL because they do things a little differently than traditional SQL databases. We'll see what that means in a minute.
 
-So you know – there are software "drivers" that allow MongoDB to be used with a multitude of programming languages and frameworks, including both Node and Ruby on Rails. We'll be talking about it in Express applications later today. If you want to research using it in Sinatra or Rails, take a look at the `mongoid` gem.
+So you know – there are software "drivers" that allow MongoDB to be used with a multitude of programming languages and frameworks, including both Node and Ruby on Rails. If you want to research using it in Sinatra or Rails, take a look at the `mongoid` gem.
 
 For this module, we're using straight up Mongo. So what's a Mongo database look like?
 
