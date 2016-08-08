@@ -25,9 +25,9 @@ competencies: Databases
 
 #### Overview - Mongo & NoSQL Databases
 
-MongoDB is one of the new breeds of databases known as NoSQL databases. NoSQL databases are heavily used in realtime, big data and social media applications and generally called NoSQL because they do things a little differently than traditional SQL databases. We'll see what that means in a minute.
+MongoDB is one of the new breeds of databases known as NoSQL databases. NoSQL databases are heavily used in realtime, big data and social media applications and generally called NoSQL because they do things a little differently than traditional SQL databases. We'll be able to compare and contrast more when we learn about relational databases.
 
-So you know – there are software "drivers" that allow MongoDB to be used with a multitude of programming languages and frameworks, including both Node and Ruby on Rails. If you want to research using it in Sinatra or Rails, take a look at the `mongoid` gem.
+So you know – there are software "drivers" that allow MongoDB to be used with a multitude of programming languages and frameworks, including Node.
 
 For this module, we're using straight up Mongo. So what's a Mongo database look like?
 
@@ -35,8 +35,8 @@ For this module, we're using straight up Mongo. So what's a Mongo database look 
 
 - A MongoDB database consists of _documents_.
 - A _document_ in MongoDB is composed of _field_ and _value_ pairs.
-- Hint: remember our relational database (SQL) tables? You can think of each of these _documents_ as a row in your table.
-Lets take a look of what a MongoDB _document_ may look like:
+
+Let's take a look of what a MongoDB _document_ may look like:
 
 ```js
 {
@@ -77,22 +77,6 @@ or this...
 ```
 However, it's more common to allow MongoDB to create it implicitly for us using its _ObjectID_ data type.
 
-
-#### MongoDB vs. Relational SQL Databases, Terminology
-
-![](http://4.bp.blogspot.com/-edz2_QrFvCE/UnzBhKZE3FI/AAAAAAAAAEs/bTEsqnZFTXw/s1600/SQL-MongoDB+Correspondence.PNG)
-
-#### Key Differences of MongoDB
-
-- Schema-less
-	- The documents in a MongoDB collection can have completely different types and number of fields from each other.<br>
-	- __How does this compare to a SQL database like PostgreSQL?__
-
-- No Table Joins
-
-	- In a SQL DB, we break up related data into separate tables.
-	- In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
-	- The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
 
 ## Installing, Creating a DB, and Inserting Documents - Codealong (15 mins)
 
