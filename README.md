@@ -56,9 +56,9 @@ _BSON_ basically extends _JSON_ with additional data types, such as __ObjectID__
 
 #### The Document *_id*
 
-The *_id* is a special field represents the document's _primary key_ and will always be listed as the first field. It must be unique.
+The `_id` is a special field represents the document's _primary key_ and will always be listed as the first field. It __must__ be unique.
 
-We can explicitly set the *_id* like this:
+It is *possible* to explicitly set the `_id`:
 
 ```js
 {
@@ -66,15 +66,8 @@ We can explicitly set the *_id* like this:
   name: "Suzy"
 }
 ```
-or this...
 
-```js
-{
-  _id: "ABC",
-  name: "Suzy"
-}
-```
-However, it's more common to allow MongoDB to create it implicitly for us using its _ObjectID_ data type.
+However, it's standard to let MongoDB manage unique `_id`s for us. We don't need to do any creating or setting the `_id`: Mongo will automatically handle them for us using its _ObjectID_ data type.
 
 
 ## Installing, Creating a DB, and Inserting Documents - Codealong (15 mins)
